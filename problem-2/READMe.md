@@ -12,7 +12,6 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 ```
 Target: (< 4,000,000 && even-valued) of Fibbonacci sequences
 
-```
 1. Fibbonacci sequence:
 
 a=1,b=0,c=0
