@@ -24,4 +24,17 @@ If a%2==0:
 sum += a
 ```
 
+### Updated Pseudocode
+
+```
+first two terms to be 1 and 2, not a = 1, b = 0
+
+init a=1,b=2,sum=0
+while a<4000000:
+    if a is even (a%2==0):
+        add a to sum
+    update a and b to the next fibbonacci number:
+    a,b = b, a+b
+Print sum
+```
 
