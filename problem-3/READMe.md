@@ -29,7 +29,7 @@ For A > 1:
     a. While X is divisible by i:
         i. Set largest_prime_factor = i
         ii. Divide X by i (X=X/i)
-4. If X > 2:
+4. If X > 2 (remaining X is prime and greater than 1):
     a. Set largest_prime_factor = X(X is prime, and it is the largest prime factor)
 5. Return largest_prime_factor
 ```
