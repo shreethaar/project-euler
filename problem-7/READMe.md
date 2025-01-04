@@ -14,15 +14,19 @@ What is the 10001st prime numbers?
 ### Pseudocode:
 
 ```
-base_prime=[2,3,5,7,9,11,13]
 count=6
-while(count!=10001):
-    int get_prime=14
-    for(int i=0,i<=sizeof(base_prime);i++) {
-        if(get_prime%i=0 && get_prime%1=0)  {
-            count+=1;
+current_number=14
+while(count!= 10001):
+    is_prime=true
+    for i in range(2, sqrt(current_number)+1):
+        if(current_number % i == 0)  {
+            is_prime_false
+            break
         }
-    get_prime+=1;
+    if is_prime:
+        count+=1
+
+    current_number+=1;
 }
 ```
 
