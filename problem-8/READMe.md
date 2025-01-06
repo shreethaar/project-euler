@@ -28,5 +28,28 @@ The four adjacent digits in the 1000-digit number that have the greatest product
 Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product ?
 
 ### Solution:
+- Send input as string of 1000 digit number
+- Length of adjacent digits to be is n=13
 
+### Pseudocode:
+```
+largest_product(series,n):
+    max_product=0
+    current_product=1
+    len=length_of_series
 
+    for i from 0 to (length - n):
+    current_product=1
+    for j from i to (i+n):
+        digit=series[j]
+        if digit==0:
+            current_product=0
+            break
+        else
+            current_proudct *= digit
+
+    if current_product > max_product:
+        max_product = current_product
+
+return max_product
+```
