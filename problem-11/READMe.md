@@ -37,5 +37,42 @@ To accurately calculate the number of combinations in a 20x20 grid, break it dow
 3. Diagonal Combinations
 There are two diagonal directions to consider:
 - 1. Top-Left to Bottom-Right Diagonals
-    - 
+    -  Starting positions: For a 20 X 20 grid, the number of starting positions where a 4-number diagonal can fit is:
+    - `(20 - 3) X (20 - 3) = 17 X 17 = 289`
+
+- 2. Top-Right to Bottom-Left Diagonals
+    - Starting positions: `17 X 17 = 289`
+
+- Total Diagonal Combinations = `289(TL-BR) + 289(TR-BL) = 578`
+
+**Total Combinations in All Directions** = `340 + 340 + 578 = 1258`
+
+### Pseudocode
+- Transeverse grid with nested loop for each cell
+- Calculate in all directions 
+- Compare previous\_max, if true replace with current\_max
+
+```
+find_max(grid):
+    max_product=0
+
+    for row from 0 to 19:
+        for col from 0 to 19:
+        
+        if col<=16:
+            product=grid[row][col]*grid[row][col+1]*grid[row][col+2]*grid[row][col+3]
+            max_product=max(max_product,product) 
+
+        if row <= 16:  
+                product = grid[row][col] * grid[row+1][col] * grid[row+2][col] * grid[row+3][col]
+                max_product = max(max_product, product)
+        if row <= 16 and col <= 16:  
+                product = grid[row][col] * grid[row+1][col+1] * grid[row+2][col+2] * grid[row+3][col+3]
+                max_product = max(max_product, product)
+
+        if row <= 16 and col >= 3:  // Ensure there are 4 adjacent numbers diagonally
+                product = grid[row][col] * grid[row+1][col-1] * grid[row+2][col-2] * grid[row+3][col-3]
+                max_product = max(max_product, product)
+
+```
 
