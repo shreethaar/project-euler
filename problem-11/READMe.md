@@ -70,7 +70,7 @@ find_max(grid):
                 product = grid[row][col] * grid[row+1][col+1] * grid[row+2][col+2] * grid[row+3][col+3]
                 max_product = max(max_product, product)
 
-        if row <= 16 and col >= 3:  // Ensure there are 4 adjacent numbers diagonally
+        if row <= 16 and col >= 3:  
                 product = grid[row][col] * grid[row+1][col-1] * grid[row+2][col-2] * grid[row+3][col-3]
                 max_product = max(max_product, product)
 
