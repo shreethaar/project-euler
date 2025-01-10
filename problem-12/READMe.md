@@ -20,4 +20,29 @@ Let us list the factors of the first seven triangle numbers:
 We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred divisors?
 
-###
+### Solution:
+- function to count divisors which iterate from 1 to sqrt(num)
+- generate triangular number where `n*(n+1)/2`, also increment by n for iterating
+- stop loop exection once reach 500
+
+### Pseudocode:
+
+```
+div_count(num):
+    count=0
+    for i from 1 to sqrt(num):
+        if num%i==0:
+            count+=2
+        if i*i==num:
+            count--
+    return count
+
+n=1
+while true:
+    tri_num=n*(n+1)/2
+    func_div_count=div_count(tri_num)
+    if func_div_count>500:
+        print tri_num
+        break
+    n++
+```
