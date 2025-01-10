@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-int main() {
-    const char *num[]= {
+#define NUM_COUNT 100
+#define DIGIT_COUNT 50
+
+const char *num[]= {
         "37107287533902102798797998220837590246510135740250",
         "46376937677490009712648124896970078050417018260538",
 		"74324986199524741059474233309513058123726617309629",
@@ -103,16 +104,30 @@ int main() {
 		"72107838435069186155435662884062257473692284509516",
 		"20849603980134001723930671666823555245252804609722",
 		"53503534226472524250874054075591789781264330331690",
-    };
-    
-    long long sum=0;
-    for(int i=0;i<100;i++) {
-        char buffer[13];
-        strncpy(buffer,num[i],12);
-        buffer[12]='\0';
-        sum+=atoll(buffer);
+};
+
+int main() {
+    int sum[NUM_COUNT*DIGIT_COUNT]={0};
+    for(int i=0;i<NUM_COUNT;i++) {
+        const char *current_num=num[i];
+        int carry=0;
+
+        for(int j=DIGIT_COUNT-1;j>=0;j--) {
+            int digit=current_num[j]-'0';
+            sum[DIGIT_COUNT-1-j]+=digit+carry;
+            carry=sum[DIGIT_COUNT-1-j]/10;
+            sum[DIGIT_COUNT-1-j]%=10;
+        }
+        for(int k=DIGIT_COUNT-1;k>=0&&carry>0;k--) {
+            sum[k]+=carry;
+            carry=sum[k]/10;
+            sum[k]%=10;
+        }
     }
-    printf("%.10lld\n",sum);
+
+    for(int i=0;i<10;i++) {
+        printf("%d",sum[i]);
+    }
+    printf("\n");
     return 0;
 }
-
